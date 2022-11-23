@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "CryptographyLogic": {
+      "commandName": "Project",
+      "commandLineArgs": "-h"
+    }
+  }
+}
