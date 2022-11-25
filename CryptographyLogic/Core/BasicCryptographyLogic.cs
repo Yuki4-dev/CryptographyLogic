@@ -36,7 +36,7 @@ namespace CryptographyLogic.Core
             var separatorIndex = base64Data.IndexOf(CryptographyLogicConfig.IV_SEPARATOR);
             if (separatorIndex == -1)
             {
-                throw new InvalidDataException(base64Data);
+                throw new InvalidDataException($"Invalid Data : {base64Data[..30]}...");
             }
 
             var iv = Convert.FromBase64String(base64Data[..separatorIndex]);
