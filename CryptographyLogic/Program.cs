@@ -39,7 +39,7 @@ internal class Program
         }
         else
         {
-            Console.WriteLine(logic.DeCryptographyy(text, arg.Password));
+            Console.WriteLine(logic.DeCryptography(text, arg.Password));
         }
     }
 
@@ -93,7 +93,7 @@ internal class Program
             var exeType = ExecuteType.EnCryptography;
             if (typeStr == "-d")
             {
-                exeType = ExecuteType.DeCryptographyy;
+                exeType = ExecuteType.DeCryptography;
             }
 
             return new Argument(exeType, pass, path);
@@ -102,6 +102,6 @@ internal class Program
 
     private enum ExecuteType
     {
-        Help, EnCryptography, DeCryptographyy
+        Help, EnCryptography, DeCryptography
     }
 }

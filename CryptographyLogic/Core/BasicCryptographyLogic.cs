@@ -1,6 +1,4 @@
-﻿#nullable enable
-
-using System.Security.Cryptography;
+﻿using System.Security.Cryptography;
 using System.Text;
 
 namespace CryptographyLogic.Core
@@ -31,7 +29,7 @@ namespace CryptographyLogic.Core
             return Convert.ToBase64String(iv) + CryptographyLogicConfig.IV_SEPARATOR + Convert.ToBase64String(msEncrypt.ToArray());
         }
 
-        public string DeCryptographyy(string base64Data, string password)
+        public string DeCryptography(string base64Data, string password)
         {
             var separatorIndex = base64Data.IndexOf(CryptographyLogicConfig.IV_SEPARATOR);
             if (separatorIndex == -1)
@@ -44,9 +42,9 @@ namespace CryptographyLogic.Core
             var encryptedData = Convert.FromBase64String(base64Data[(separatorIndex + 1)..]);
 
             using var algorithm = createAlgorithm();
-            using var decryptor = algorithm.CreateDecryptor(key, iv);
+            using var descriptor = algorithm.CreateDecryptor(key, iv);
             using var msDecrypt = new MemoryStream(encryptedData);
-            using var csDecrypt = new CryptoStream(msDecrypt, decryptor, CryptoStreamMode.Read);
+            using var csDecrypt = new CryptoStream(msDecrypt, descriptor, CryptoStreamMode.Read);
             using var srDecrypt = new StreamReader(csDecrypt, CryptographyLogicConfig.TEXT_ENCODING);
 
             return srDecrypt.ReadToEnd();

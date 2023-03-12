@@ -8,6 +8,6 @@ namespace CryptographyLogic.Core
 
         string EnCryptography(string textData, string password);
 
-        string DeCryptographyy(string baseValue, string password);
+        string DeCryptography(string baseValue, string password);
     }
 }
